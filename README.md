@@ -1,4 +1,4 @@
-# Skoltech Poster Template
+# CEST Poster Template
 
 ## Description
 This is a nonofficial poster for the [Center for Energy Science and Technology (CEST)](https://crei.skoltech.ru/cest) and [Storion Reserach Lab](https://storion.ru/) in Skoltech. Basic concepts, including tables, figures, references, are explained with comments.
