@@ -1,0 +1,72 @@
+% ADD THE FOLLOWING COUPLE LINES INTO YOUR PREAMBLE
+
+% Small logos for footnote
+\usepackage{fontspec} 
+\usepackage{fontawesome5} 
+
+% Reference style, google for more
+% You can use: science, nature, phys, ieee, chem-rsc, chem-angew, chem-acs. More info: https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
+\usepackage[
+    backend=biber,
+    style=chem-angew,
+    maxnames=1,
+    % style=nature,
+  ]{biblatex}
+
+\addbibresource{lib.bib}
+
+
+\let\OLDthebibliography\thebibliography
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{-2.0pt}
+  \setlength{\itemsep}{0.1pt plus 0.1ex}
+}
+
+\setlength{\bibhang}{0pt}% the hanging indent
+\setlength{\bibitemsep}{0.25pt}% the separation b/w basic items
+\setlength{\bibinitsep}{0.2pt}% insert blank line between different initial letters
+
+% Dont print pages for articles
+\AtEveryBibitem{%
+  \ifentrytype{article}{%
+    \clearfield{pages}%
+  }{%
+  }%
+}
+
+% Dont print pages for links
+\AtEveryBibitem{%
+  \ifentrytype{inproceedings}{%
+    \clearfield{pages}%
+  }{%
+  }%
+}
+
+% Dont print pages for books
+\AtEveryBibitem{%
+  \ifentrytype{book}{%
+    \clearfield{pages}%
+  }{%
+  }%
+}
+
+
+% Pdf Images
+\usepackage{pdfpages}
+% Force image to the specific place in the text
+\usepackage{float}
+% Caption of figures
+\usepackage{caption}
+\captionsetup[figure]{labelfont={color=skgray, bf},labelformat={default},labelsep=period,name={Figure}}
+\captionsetup[table]{labelfont={color=skgray, bf},labelformat={default},labelsep=period,name={Table}}
+
+
+% References in the text
+\usepackage[capitalise, noabbrev]{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MODIFY THIS PART %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Poster with or without footer 
+\usepackage{etoolbox}
+\providetoggle{usefooter}
+\settoggle{usefooter}{true}

@@ -1,0 +1,105 @@
+% Footnote 
+\headerbox{}{headershape=rectangle, name=bottomfoot, column=0, span=6, above=bottom, textborder=none, borderColor=skgreen,  boxheaderheight=0.05pt}{
+  % 1. minipage for references
+  \hspace{-0.35cm}
+  \begin{minipage}[t][1.8cm]{0.32\textwidth}
+	% \vspace{0.3cm}
+	$\quad$\textbf{\hspace{0.0cm}\small\color{skgreen}KEY REFERENCES}
+
+    % \tiny	 \scriptsize \footnotesize	\small	 \normalsize
+
+    % \hspace{0.5cm}
+    \AtNextBibliography{\tiny}
+    \vspace{-0.3cm}
+    \begingroup 
+    \renewcommand{\section}[2]{}
+    \printbibliography
+
+    \endgroup
+
+  \end{minipage}
+  \hfill\color{skgreen}{\vline width 1pt}\hfill
+  %
+  % 2. minipage for logos
+  % modify to show your partners and current conference logo!
+  % Comment "includegraphics" if you want white space
+  \begin{minipage}[t][1.8cm]{.32\textwidth}
+	% \vspace{0.1cm}
+	\hspace{0.25cm}
+	$\quad$\textbf{\centering\small\color{skgreen}ACKNOWLEDGEMENT AND SPONSORS}\\$\;$\\
+	\footnotesize
+	\begin{minipage}{.32\textwidth}
+	  \begin{center}
+        \vspace*{-0.75cm}
+		\includegraphics[width=0.60\textwidth]{logos/artscienceandsport_logo.png}
+	  \end{center}
+	\end{minipage}
+	\begin{minipage}{.32\textwidth}
+	  \begin{center}
+	    \includegraphics[width=0.60\textwidth]{logos/conf_logo.png}
+	  \end{center}
+	\end{minipage}
+        \begin{minipage}{.32\textwidth}
+        \vspace*{-0.5cm}
+	  \begin{center}
+        \includegraphics[width=0.50\textwidth]{logos/lupac_logo_transparente.png}
+	  \end{center}
+	\end{minipage}
+ 
+    \vspace*{-0.70cm}
+    \begin{minipage}{.1\textwidth}
+      \hspace{\textwidth}
+	\end{minipage}
+    \begin{minipage}{.33\textwidth}
+	  \begin{center}
+	\includegraphics[width=0.8\textwidth]{logos/rusatom-logo-ru.png}
+	  \end{center}
+	\end{minipage}
+    \begin{minipage}{.1\textwidth}
+      \hspace{\textwidth}
+	\end{minipage}
+    \begin{minipage}{.33\textwidth}
+	  \begin{center}
+	\includegraphics[width=0.50\textwidth]{logos/logo-smartstat.jpg}
+	  \end{center}
+	\end{minipage}
+    \begin{minipage}{.1\textwidth}
+      \hspace{\textwidth}
+	\end{minipage}
+  \end{minipage}
+  \hfill{\vline width 1.0pt}\hfill
+  %
+  % 3. mini page for contact info
+  \begin{minipage}[t][1.8cm]{.32\textwidth}
+
+  $\quad$\textbf{\hspace{0.0cm}\small\color{skgreen}MORE INFORMATION} \vspace{-0.35cm}\\ 
+
+   \hspace{0.25cm}
+    \begin{minipage}{.64\textwidth}
+    \vspace{0.15cm}
+    \color{skgray}
+
+    \footnotesize
+    % insert your details!
+    % \hspace{0.5cm}
+    \textbf{Main Author}\\
+    Name Surname \\
+    \faEnvelope~name.surname@skoltech.ru \\
+    \faMobile~+8 xxx xxxxxxx \\ 
+    \faTelegram~@authortg
+  
+    \end{minipage}
+
+    \hspace*{5.15cm} 
+    \begin{minipage}{0.35\textwidth}
+     \vspace{-2.05cm}
+	  \begin{center}
+      % Replace with your link if you wish
+      \includegraphics[height=0.60\textwidth]{logos/tg_link.png}
+     {\hspace{0.15cm} \normalsize\bf\color{skgray}DFT chatroom}
+	  \end{center}
+ 	\end{minipage}
+        %
+    
+  \end{minipage}
+}

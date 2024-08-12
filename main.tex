@@ -1,0 +1,262 @@
+
+\documentclass[
+portrait,
+a0paper,
+fontscale=0.3,
+% landscape,
+%draft,
+]
+{baposter}
+
+\newcommand\xscale{0.3}
+
+% load packages
+% already loaded some useful packages for figures, tables and layout
+% not all are needed to run this minimal example
+
+\usepackage{graphicx}
+\usepackage[percent]{overpic}
+\usepackage[detect-weight]{siunitx}
+\usepackage{tabto}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{qrcode}
+% add additional packages you need here
+%
+% for now usig bibitem, but if you want ...
+%\usepackage[backend=biber]{biblatex} 
+%
+% customizing 
+\newlength{\mytextsize}
+\newcommand\e{\cdot 10^}
+\setlength{\unitlength}{1.0cm}
+%
+
+\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+%
+%
+% define colors  
+\definecolor{skgray}{RGB}{80,80,80} %for text / color / logo
+\definecolor{skgreen}{RGB}{210,222,38} %for text 
+
+% Additional packages
+\input{additional_packs}
+
+
+%##################################################################################
+\begin{document}
+%##################################################################################
+\begin{poster}
+{
+  % options
+  grid=false,%true,
+  background=plain,
+  bgColorOne=white,
+  columns=6, % for flexibility changing 2/3 columns with columnspan
+  eyecatcher=false,
+  borderColor=skgreen,
+  headerColorOne=skgreen, %white,
+  headershade=plain,
+  %headerColorTwo=white,
+  headerborder=open,
+  % for rectangular boxes change the next two options, rectangular header will cause left aligning of box title 
+  textborder=rounded, %rectangle,
+  headershape=rounded, %rectangle,
+  headerfont=\bf\Large,
+  boxshade=none,
+  headerFontColor=skgray,
+  boxheaderheight=1.8em,
+  headerheight=0.07\textheight, % Adjust header height here
+  % eyeh=0.04\textheight,         % Adjust the vertical offset of the title text
+}
+{
+  %eyecatcher ...
+}
+{
+  %poster title
+  % first put graphics for header
+  \hspace*{-1.0mm}
+  
+  \begin{picture}(23.7, 1.5)
+  \fboxsep0pt
+  \put(-0.196, -0.6){\colorbox{skgreen}{\rule[64pt]{1.0\textwidth}{0pt}}}
+  \thicklines
+  % minipage box for title and authors
+  \put(2.55, 1.35){
+    \begin{minipage}[t][64pt]{0.75\textwidth}
+    % centering
+    \begin{center}
+    % Title
+    % use \LARGE instead of \Huge for long titles, you might need to modify distances or number of lines
+    % for one line title
+    %\ \vspace{0.15cm}\\
+    %\huge\bf\color{white}\selectfont Single Line Title \vspace{0.4cm}\\ 
+    % for two line title
+    \vspace{-0.15cm}
+    \Large\bf\color{skgray}\selectfont First Title Line \\ 
+    \Large\bf\selectfont Second Title Line \vspace{0.15cm} \\ 
+    % Authors, main author first will be underlined, you might need to modify distances or number of lines
+    % two lines
+    \hspace{0.2cm}
+    \small\underline{Main Author}, Second Author, Third author \\
+    \small name.surname@skoltech.ru  \\
+    \end{center} 
+  \end{minipage}}
+  %  
+  % some logo
+  
+  %% DO NOT FORGET to replace QR code link and Poster ID !
+  \put(0.005\textwidth,0.47){\color{skgray}\qrcode[hyperlink,height=0.07\textwidth]{https://storion.ru/}}
+  \put(0.0140\textwidth,-0.50){\normalsize\bf\color{skgray}Our lab}
+
+  \put(0.890\textwidth,-0.50){\includegraphics[height=60pt]{logos/sk_logo.png}}
+
+  
+  \end{picture} 
+}
+{
+	%poster authors, already in title
+}
+{
+	%logo, already in title
+}
+
+
+% USE FOOTNOTE OR NOT, CHANGES IN THE ADDITIONAL PACKAGES
+\iftoggle{usefooter}{
+    % if true
+    \input{footnote}
+    \newcommand{\bottomalign}{bottomfoot}
+    \newcommand{\referenceplace}{infooter}
+    \providetoggle{refintext}
+    \settoggle{refintext}{false}
+}
+{
+    % if false
+    \newcommand{\bottomalign}{bottom}
+    \newcommand{\referenceplace}{intext}
+    \providetoggle{refintext}
+    \settoggle{refintext}{true}
+}
+
+
+
+
+\headerbox{Motivation}{name=motivation, column=0, row=0, span=3}{
+  \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=10pt]
+   \item Motivation
+   \item \vspace{6cm}
+   
+  \end{itemize}  
+}
+%
+%
+\headerbox{Methods and parameters}{name=methods, span=3, below=motivation, column=0}{
+  \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=10pt]
+    \item Methods and parameters
+    \item \vspace{12cm}
+	\end{itemize}
+}
+%
+%
+\headerbox{Conclusions}{name=conclusions, span=3, below=methods, column=0}{
+  \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=10pt]
+    \item Main conclusions
+    \item \vspace{3cm}
+
+    \cite{goodenough2013li, kohn1996density}
+    
+  \end{itemize}
+}
+%
+%
+% \headerbox{Acknowledgement}{name=acknow, span=3, below=conclusions, column=0, above=\acknowplace}{
+\iftoggle{refintext}{
+    \headerbox{Acknowledgement}{name=acknow, span=3, below=conclusions, column=0, }
+}{
+    \headerbox{Acknowledgement}{name=acknow, span=3, below=conclusions, column=0, above=\bottomalign,}
+}
+{
+  % Start typing your text here
+ 
+  The authors are grateful for the discussion to
+    
+  \textit{This work was supported by the Russian Science Foundation (grant No. 00-00-00000).}
+    
+}
+%
+%
+\iftoggle{refintext}{
+    % If no footer and referenes are in the text
+    % \headerbox{References}{name=referenc, span=3, below=acknow, above=\bottomalign, column=0}{
+    \headerbox{References}{name=ref, span=3, below=acknow, column=0, above=bottom}{
+    
+    % \tiny	 \scriptsize \footnotesize	\small	 \normalsize
+
+    \AtNextBibliography{\tiny}
+    \begingroup 
+    \renewcommand{\section}[2]{}
+    \printbibliography
+    \endgroup
+    
+    }
+}{} % Do nothing if template without footer
+%
+%
+\headerbox{Main results 1}{name=results1, span=3, row=0, column=3}{
+    Main results part 1
+
+   {\centering
+        \includegraphics[width=0.35\textwidth]{figures/universe.jpeg}
+        \captionof{figure}{JPG image.}
+        \label{fig:jpg_example}
+    }
+
+    Reference in \cref{fig:jpg_example}.
+
+    {\centering
+        \includegraphics[width=0.35\textwidth]{figures/universe.pdf}
+        \captionof{figure}{PDF image.}
+        \label{fig:pdf_example}
+    }
+
+    Reference in \cref{fig:pdf_example}.
+
+}		
+%
+%
+\headerbox{Main results 2}{name=results2, span=3, row=0, column=3, below=results1, above=\bottomalign}{
+  \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=10pt]
+    \item Main part of the results
+  
+  \end{itemize}
+    
+    {\centering
+        \captionof{table}{Table example.}
+        \begin{tabular}{>{\hspace{0pt}}m{0.105\textwidth}|>{\centering\hspace{0pt}}m{0.137\textwidth}|>{\centering\hspace{0pt}}m{0.137\textwidth}|>{\centering\hspace{0pt}}m{0.137\textwidth}|>{\centering\arraybackslash\hspace{0pt}}m{0.137\textwidth}} 
+     
+        \hline\hline
+                        & Method 1    & Method 2    & $\Delta$,~eV  & $\delta$       \\ 
+        \hline
+        a, \AA            & 0.000 & 0.00  & 0.00 & 0.00\%  \\
+        c, \AA            & 0.00 & 0.00  & 0.00 & 0.00\%  \\
+        $B$, GPa          & 0.00 & 0.00 & 0.00  & 0.00\%  \\
+        $E_{\mathrm{b}}$, eV & 0.00   & 0.00   & 0.00  & 0.00\%  \\
+        $l_{\mathrm{mig}}$, \AA            & 0.00  & 0.00   & 0.00   & 0.00\%   \\
+        \hline\hline
+        \end{tabular}
+
+        \label{fig:table_example}
+    }
+
+}		
+
+
+
+\end{poster}
+\end{document}
